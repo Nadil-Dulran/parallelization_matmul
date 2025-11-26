@@ -1,0 +1,54 @@
+# Ignore compiled binaries
+mpi_matmul
+omp_matmul
+serial_matmul
+cuda_matmul
+
+# Object and intermediate files
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.dylib
+
+# Build folders
+build/
+bin/
+obj/
+
+# Make/CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# macOS
+.DS_Store
+
+# Logs and core dumps
+*.log
+core
+core.*
+
+# Backup and editor temporary files
+*~
+*.swp
+
+# Coverage / profiling
+coverage/
+*.gcno
+*.gcda
+
+# CUDA intermediate files
+*.ptx
+
+# Python virtualenvs (if any Python tooling used)
+venv/
+env/
+
+# JetBrains
+.idea/
+
+# Thumbs
+Thumbs.db
