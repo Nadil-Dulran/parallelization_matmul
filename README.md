@@ -63,7 +63,7 @@ Note: macOS's system clang does not ship with OpenMP support. Two common options
 ```bash
 # Homebrew gcc is often named gcc-13 or similar. Check `brew info gcc`.
 gcc-13 -fopenmp -O2 omp_matmul.c -o omp_matmul
-OMP_NUM_THREADS=4 ./omp_matmul 1024
+./omp_matmul 2048 16
 ```
 
 2) Use clang + libomp (macOS):
@@ -71,14 +71,14 @@ OMP_NUM_THREADS=4 ./omp_matmul 1024
 ```bash
 # Install libomp via brew: brew install libomp
 clang -Xpreprocessor -fopenmp omp_matmul.c -L/opt/homebrew/lib -lomp -I/opt/homebrew/include -O2 -o omp_matmul
-OMP_NUM_THREADS=4 ./omp_matmul 1024
+./omp_matmul 2048 16
 ```
 
 On Linux with GCC:
 
 ```bash
 gcc -fopenmp -O2 omp_matmul.c -o omp_matmul
-OMP_NUM_THREADS=4 ./omp_matmul 1024
+./omp_matmul 2048 16
 ```
 
 MPI (distributed-memory)
@@ -111,7 +111,7 @@ Pick the `-arch=sm_XX` value that matches your GPU's compute capability. Use `nv
 
 ```bash
 export OMP_NUM_THREADS=8
-./omp_matmul 2048
+./omp_matmul 2048 8
 ```
 
 - Run MPI with 8 processes (on a single machine):
